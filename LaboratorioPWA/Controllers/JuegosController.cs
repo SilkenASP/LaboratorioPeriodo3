@@ -61,7 +61,7 @@ namespace LaboratorioPWA.Controllers
             {
                 idJuego = id,
                 nomJuego = item.nomJuego,
-                existencias = (int)item.existencias,
+                existencias = (int)item.existencias
                 
             };
             return View(item2);
