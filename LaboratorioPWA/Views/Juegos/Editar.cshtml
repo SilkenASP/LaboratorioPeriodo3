@@ -1,0 +1,31 @@
+﻿@model LaboratorioPWA.Models.localJuego
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Editar", "Juegos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="row">
+    <div class="col-md-12">
+        <label class="control-label">Nombre del juego</label>
+        @Html.TextBoxFor(novojogo => novojogo.nomJuego, "", new { @class = "form-control" })
+        <label class="control-label">Precio</label>
+        @Html.TextBoxFor(novojogo => novojogo.precio, "", new { @class = "form-control" })
+        <label class="control-label">Existencias</label>
+        @Html.TextBoxFor(novojogo => novojogo.existencias, "", new { @class = "form-control" })
+        @Html.HiddenFor(d => d.idJuego)
+        <label class="control-label">Imagen</label>
+        <input tpye="file" name="ImafeFile" class="form-control" />
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <p>
+            <input class="btn btn-outline-dark" value="Guardar" type="submit" />
+        </p>
+        
+    </div>
+</div>
+}

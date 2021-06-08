@@ -114,7 +114,7 @@ namespace LaboratorioPWA.Repository
                 return new Response
                 {
                     IsSuccess = true,
-                    Result = SortedList
+                    Result = SortedList.ToList()
                 };
 
             }

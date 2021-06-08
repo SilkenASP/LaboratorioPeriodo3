@@ -1,0 +1,26 @@
+﻿@model LaboratorioPWA.Models.localJuego
+@{
+    ViewBag.Title = "nuevoJuego";
+}
+
+<h2>nuevoJuego</h2>
+@using (Html.BeginForm("JuegoController", "Juego", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <label class="control-label">Nombre del juego</label>
+            @Html.TextBoxFor(novojogo => novojogo.nomJuego, "", new { @class = "form-control" })
+            <label class="control-label">Categoria</label>
+            @Html.DropDownList("Idcategoria", null, htmlAttributes: new { @class = "form-control" })
+            <label class="control-label">Precio</label>
+            @Html.TextBoxFor(novojogo => novojogo.precio, "", new { @class = "form-control" })
+            <label class="control-label">Existencias</label>
+            @Html.TextBoxFor(novojogo => novojogo.existencias, "", new { @class = "form-control" })
+            <label class="control-label">Imagen</label>
+            <input tpye="file" name="ImafeFile" class="form-control" />
+        </div>
+        <div>
+            <input class="btn btn-outline-dark" value="Guardar" type="submit" />
+        </div>
+    </div>
+}
