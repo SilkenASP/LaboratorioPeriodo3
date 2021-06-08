@@ -20,6 +20,11 @@ namespace LaboratorioPWA.Controllers
 
             return View(lista);
         }
+
+        public ActionResult NuevoJuego()
+        {
+            return View();
+        }
         [HttpPost]
         public ActionResult NuevoJuego(localJuego item)
         {
@@ -45,7 +50,7 @@ namespace LaboratorioPWA.Controllers
             }
             else
             {
-                return Redirect("~/juego");
+                return Redirect("~/juegos");
             }
         }
         public ActionResult Editar(int id)
@@ -87,7 +92,7 @@ namespace LaboratorioPWA.Controllers
                 }
                 else
                 {
-                    return Redirect("~/categoria");
+                    return Redirect("~/juegos");
                 }
             }
             else
@@ -102,7 +107,7 @@ namespace LaboratorioPWA.Controllers
                 }
                 else
                 {
-                    return Redirect("~/juego");
+                    return Redirect("~/juegos");
                 }
             }
         }
@@ -110,7 +115,7 @@ namespace LaboratorioPWA.Controllers
         public ActionResult Eliminar(int id)
         {
             var resp = db.Delete(id);
-            return Redirect("~/juego");
+            return Redirect("~/juegos");
         }
     }
 }

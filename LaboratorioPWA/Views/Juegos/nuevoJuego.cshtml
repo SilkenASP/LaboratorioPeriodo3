@@ -4,14 +4,14 @@
 }
 
 <h2>nuevoJuego</h2>
-@using (Html.BeginForm("JuegoController", "Juego", FormMethod.Post, new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("NuevoJuego", "Juegos", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div class="row">
         <div class="col-md-12">
             <label class="control-label">Nombre del juego</label>
             @Html.TextBoxFor(novojogo => novojogo.nomJuego, "", new { @class = "form-control" })
             <label class="control-label">Categoria</label>
-            @Html.DropDownList("Idcategoria", null, htmlAttributes: new { @class = "form-control" })
+            
             <label class="control-label">Precio</label>
             @Html.TextBoxFor(novojogo => novojogo.precio, "", new { @class = "form-control" })
             <label class="control-label">Existencias</label>
