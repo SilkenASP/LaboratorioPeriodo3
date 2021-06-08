@@ -1,0 +1,24 @@
+﻿@model LaboratorioPWA.Models.LocalCat
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Editar", "Categoria", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.LabelFor(d => d.nomCategoria)
+            @Html.TextBoxFor(d => d.nomCategoria, "", new { @class = "form-control" })
+            @Html.LabelFor(d => d.imagenCat)
+            @Html.HiddenFor(d=>d.idcategoria)
+            @*@Html.EditorFor(d=>d.ImageFile , new { htmlAttributes = new { @class = "form-control",@type = "file"} })*@
+            <input type="file" name="ImageFile" class="form-control" />
+        </div>
+        <br />
+        <div style="text-align:right">
+            <input class="btn btn-primary" value="Guardar" type="submit" />
+        </div>
+    </div>
+}

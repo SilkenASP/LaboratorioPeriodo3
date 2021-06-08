@@ -133,6 +133,7 @@
     </Compile>
     <Compile Include="Models\categoria.cs" />
     <Compile Include="Models\juego.cs" />
+    <Compile Include="Models\LocalCat.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -193,9 +194,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Categoria\NuevaCategoria.cshtml" />
+    <Content Include="Views\Categoria\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
     <Folder Include="Views\Juegos\" />
   </ItemGroup>
   <ItemGroup>

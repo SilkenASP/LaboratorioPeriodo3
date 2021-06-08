@@ -1,7 +1,30 @@
-﻿
-@{
-    ViewBag.Title = "Index";
-}
+﻿@model List<LaboratorioPWA.Models.categoria>
 
-<h2>Index</h2>
-
+<div class="container">
+    <div class="row">
+        <a href="~/Categoria/NuevaCategoria" class="btn btn-info" style="">Nueva</a>
+    </div>
+    <div class="row">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre Categoria</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td><img src=@Url.Content(item.imagenCat) width="250" height="250"/></td>
+                        <td>@item.nomCategoria</td>
+                        <td><a href="~/categoria/editar/@item.idcategoria" class="btn btn-info">Editar</a></td>
+                        <td><a href="~/categoria/eliminar/@item.idcategoria" class="btn btn-danger">Eliminar</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
