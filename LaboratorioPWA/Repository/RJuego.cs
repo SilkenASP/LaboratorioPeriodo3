@@ -100,7 +100,7 @@ namespace LaboratorioPWA.Repository
             try
             {
                 db.Configuration.ProxyCreationEnabled = false;
-                var lista = db.juego.ToList();
+                var lista = db.juego.Include(d=>d.categoria).ToList();
                 if (lista.Count<=0)
                 {
                     return new Response

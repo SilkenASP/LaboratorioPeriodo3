@@ -26,10 +26,18 @@
                 <label class="control-label">Existencias</label>
                 @Html.TextBoxFor(novojogo => novojogo.existencias, "", new { @class = "form-control" })
             </div>
-
+            <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                <label class="control-label">Categoria</label>
+                <select name="idcategoria" class="form-control">
+                    @foreach (var item in ViewBag.CategoriasEditar)
+                    {
+                        <option value="@item.idcategoria">@item.nomCategoria</option>
+                    }
+                </select>
+            </div>
             <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
                 <label class="control-label">Imagen</label>
-                @Html.HiddenFor(d=>d.idJuego)
+                @Html.HiddenFor(d => d.idJuego)
                 <input type="file" name="ImageFile" class="form-control" />
             </div>
             <div>

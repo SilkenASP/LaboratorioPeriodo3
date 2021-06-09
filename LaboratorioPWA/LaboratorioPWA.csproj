@@ -201,6 +201,7 @@
     <Content Include="Views\Juegos\Index.cshtml" />
     <Content Include="Views\Juegos\nuevoJuego.cshtml" />
     <Content Include="Views\Juegos\Editar.cshtml" />
+    <Content Include="Views\Juegos\JuegosSorted.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

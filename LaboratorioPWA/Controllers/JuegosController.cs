@@ -21,7 +21,12 @@ namespace LaboratorioPWA.Controllers
 
             return View(lista);
         }
-
+        public ActionResult JuegosSorted()
+        {
+            var respuesta = db.GetSortedGames().Result;
+            var lista = (List<juego>)respuesta;
+            return View(lista);
+        }
         public ActionResult NuevoJuego()
         {
             var resp = dbCategoria.GetAll();
@@ -65,6 +70,11 @@ namespace LaboratorioPWA.Controllers
         {
             var item = (juego)db.GetById(id).Result;
             ViewBag.LastPic = item.imagen;
+            var resp = dbCategoria.GetAll();
+            if (resp.IsSuccess)
+            {
+                ViewBag.CategoriasEditar = (List<categoria>)resp.Result;
+            }
             localJuego item2 = new localJuego
             {
                 idJuego = id,
@@ -91,7 +101,8 @@ namespace LaboratorioPWA.Controllers
                     nomJuego = item.nomJuego,
                     existencias = item.existencias,
                     precio = item.precio,
-                    categoria = item.categoria
+                    categoria = item.categoria,
+                    idcategoria = (int)item.idcategoria
                 };
                 var resp = db.Update(juego, item.idJuego);
                 if (!resp.IsSuccess)
@@ -108,6 +119,9 @@ namespace LaboratorioPWA.Controllers
                 var item2 = db.GetById(item.idJuego);
                 var jue = (juego)item2.Result;
                 jue.nomJuego = item.nomJuego;
+                jue.precio = item.precio;
+                jue.existencias = item.existencias;
+                jue.idcategoria = item.idcategoria;
                 var resp = db.Update(jue, item.idJuego);
                 if (!resp.IsSuccess)
                 {
