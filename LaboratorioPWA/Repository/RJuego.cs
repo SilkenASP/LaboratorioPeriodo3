@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using System.Web;
 
 namespace LaboratorioPWA.Repository
@@ -47,7 +48,7 @@ namespace LaboratorioPWA.Repository
             try
             {
                 db.Configuration.ProxyCreationEnabled = false;
-                var lista = db.juego.ToList();
+                var lista = db.juego.Include(d=>d.categoria).ToList();
                 return new Response
                 {
                     IsSuccess = true,
@@ -114,7 +115,7 @@ namespace LaboratorioPWA.Repository
                 return new Response
                 {
                     IsSuccess = true,
-                    Result = SortedList
+                    Result = SortedList.ToList()
                 };
 
             }

@@ -1,0 +1,57 @@
+﻿@model LaboratorioPWA.Models.localJuego
+@{
+    ViewBag.Title = "nuevoJuego";
+}
+
+<h2>Agregar Juego</h2>
+@using (Html.BeginForm("NuevoJuego", "Juegos", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="row">
+    
+    <div class="container" style="padding-top:25px;">
+        <div class="card border-dark shadow">
+            <div class="card-header">
+                <b>Nuevo Juego</b>
+            </div>
+            <div class="card-body">
+                <div class="row" style="padding-left: 10px; padding-right: 10px;">
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                        <label class="control-label">Nombre del juego</label>
+                        @Html.TextBoxFor(novojogo => novojogo.nomJuego, "", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                        <label class="control-label">Precio</label>
+                        @Html.TextBoxFor(novojogo => novojogo.precio, "", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                        <label class="control-label">Categoria</label>
+                        <select name="idcategoria" class="form-control">
+                            @foreach (var item in ViewBag.Categorias)
+                            {
+                                <option value="@item.idcategoria">@item.nomCategoria</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                        <label class="control-label">Existencias</label>
+                        @Html.TextBoxFor(novojogo => novojogo.existencias, "", new { @class = "form-control" })
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 col-sm-12 mb-2">
+                        <label class="control-label">Imagen</label>
+                        @*@Html.EditorFor(d=>d.ImageFile , new { htmlAttributes = new { @class = "form-control",@type = "file"} })*@
+                        <input type="file" name="ImageFile" class="form-control" />
+                    </div>
+                    <div>
+                        <input class="btn btn-outline-dark" value="Guardar" type="submit" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

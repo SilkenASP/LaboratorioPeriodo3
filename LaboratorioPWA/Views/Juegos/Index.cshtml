@@ -1,0 +1,72 @@
+﻿@model List<LaboratorioPWA.Models.juego>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <p>
+        <a href="~/Juegos/NuevoJuego" class="btn btn-outline-primary">Agregar Juego</a>
+        @Html.ActionLink("Ordenar", "Index", new { rdTbmn = 1 }, new { @class = "btn btn-outline-dark" })
+    </p>
+</div>
+<div class="table-responsive">
+    <table class="table">
+        <thead class="bg-dark text-white text-center">
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Portada
+                </th>
+                <th>
+                    Precio
+                </th>
+                <th>
+                    Existencias
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    Opciones
+                </th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.idjuego)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.nomJuego)
+        </td>
+        <td class="text-center">
+            <img src=@Url.Content(item.imagen) width="100" height="150" />
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.existencias)
+        </td>
+        <td class="text-center">
+            @Html.DisplayFor(modelItem => item.categoria.nomCategoria)
+        </td>
+        <td class="text-center">
+            <a href="~/juegos/Editar/@item.idjuego" class="btn btn-outline-primary">Editar</a>
+            <a href="~/juegos/Eliminar/@item.idjuego" class="btn btn-outline-danger">Eliminar</a>
+        </td>
+    </tr>
+        }
+
+    </table>
+</div>
+
+

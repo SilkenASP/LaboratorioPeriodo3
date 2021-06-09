@@ -128,10 +128,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JuegosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\categoria.cs" />
+    <Compile Include="Models\localJuego.cs" />
     <Compile Include="Models\juego.cs" />
     <Compile Include="Models\LocalCat.cs" />
     <Compile Include="Models\Model1.cs" />
@@ -196,11 +198,13 @@
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Categoria\NuevaCategoria.cshtml" />
     <Content Include="Views\Categoria\Editar.cshtml" />
+    <Content Include="Views\Juegos\Index.cshtml" />
+    <Content Include="Views\Juegos\nuevoJuego.cshtml" />
+    <Content Include="Views\Juegos\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Images\" />
-    <Folder Include="Views\Juegos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
